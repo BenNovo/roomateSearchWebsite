@@ -1,0 +1,23 @@
+{%  extends "homepage/blankTemplate.html" %}
+{% block content %}
+<form action = "" method = "POST" enctype="multipart/form-data">
+	<h1>Send a chat to everyone!</h1>
+	{% csrf_token %}
+	<table>
+	{{ smform }}	
+	</table>
+	<table>
+	{{ lform }}	
+	</table>
+	<table>
+	{{ cform }}	
+	</table>
+        <table>
+        {{ uform }}
+        </table>
+	<table>
+        {{ ruform }}
+        </table>
+        <input type="submit" value="Submit" />		
+</form>
+{% endblock %}

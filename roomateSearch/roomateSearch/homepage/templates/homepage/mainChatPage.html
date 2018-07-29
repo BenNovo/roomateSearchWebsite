@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Chat with Another Student</title>
+</head>
+<body>
+	<h1>Chat with: </h1>
+	<br/>
+	<!--Display links to chats with all the users this user is matched with-->
+	{% for match in matchusernames %}
+		{% orderednames = match + request.user.username if match is > request.user.username else orderednames = request.user.username + match %}
+        <li><a href="http://ec2-13-58-169-42.us-east-2.compute.amazonaws.com:8000/profileP/chatRoomPage/{{orderednames}}/">{{ match }}</a></li>
+    {% endfor %}
+</body>
+</html>

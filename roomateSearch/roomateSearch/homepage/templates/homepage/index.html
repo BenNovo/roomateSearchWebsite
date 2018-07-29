@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title>Roomate Finding Website</title>
+{% load staticfiles %}
+<link rel = 'stylesheet' href = "{% static 'css/bootstrap.min.css'  %}"/>
+</head>
+<body>
+	<div id="main"><h1>Welcome to RoomateSearch!</h1></div>
+	<!--User log in or account creation-->
+	<form name = "input" action = "Login.php" method = "POST">
+			Username:  <input type = "text" name = "Username"/>
+			Password:  <input type = "text" name = "Password"/>
+			<strong>Action:</strong>
+			<input type = "radio" name = "Action" value = "Login" id = "logIn" /><label for = "logIn">Log In</label>
+			<input type = "radio" name = "Action" value = "Create Account" id = "createAccount" /><label for = "createAccount">Create Account</label>
+			<input type="submit" value="Submit" />
+			{% block content %}
+			{% endblock %}
+	</form>
+</body>
+</html>

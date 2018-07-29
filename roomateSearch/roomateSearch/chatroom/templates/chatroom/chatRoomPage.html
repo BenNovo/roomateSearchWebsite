@@ -1,0 +1,30 @@
+<!Doctype html>
+<html>
+<head>
+	<title>Chat with Another Student</title>
+</head>
+<body>
+	<p>Message</p>
+	<input type="text" id="message" />
+	<input type="button" value="Send" id="Submit" /><br/><br/>
+	<div id='chatLog'></div>
+</body>
+<script>
+	var chatSocket = new WebSocket(
+		'ws://ec2-13-58-169-42.us-east-2.compute.amazonaws.com:8000/profileP/chatroom/{{room}}/');
+	
+	chatSocket.onMessage = function(e) {
+		//Recieve a message from the server
+		var data = JSON.parse(e.data);
+		document.getElementById("chatLog").appendChild(document.createTextNode(data['message']););
+		dovument.getElementById("chatLog").appendChild(docuemt.createElement("br"));
+		document.getElementById("message").value = "";
+	};
+	
+	document.getElementById("Submit").addEventListener("click", function(event) {
+		//Send the message to the server, expects the server to send the message back
+		message = request.user.username + ": " + document.getElementById("message").value;
+		chatSocket.send(JSON.stringify({'message': message});
+	}, false);
+</script>
+</html>

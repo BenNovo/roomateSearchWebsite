@@ -1,0 +1,11 @@
+{%  extends "homepage/hpage.html" %}
+{% block content %}
+<p>username</p>
+<form action = "" method = "POST" enctype="multipart/form-data">
+	{% csrf_token %}
+    <table>
+        {{ pform }}
+    </table>
+    <input type="submit" value="Submit" />		
+</form>
+{% endblock %}
